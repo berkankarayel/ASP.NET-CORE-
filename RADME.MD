@@ -1,0 +1,1 @@
+echo "# ASP.NET Core Training" > README.md
