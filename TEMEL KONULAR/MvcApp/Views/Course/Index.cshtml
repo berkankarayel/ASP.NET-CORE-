@@ -1,21 +1,15 @@
-@model Course
+@model MvcApp.Models.Course
+@{
+    ViewData["Title"] = "Course ";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Course Index Page</h1>
-    <p>
-        @Model.Id
-    </p>
-
-    <p>
-        @Model.Title
-    </p>
-    <p>@Model.Description</p>
-</body>
-</html>
+<div class="container mt-4">
+    <div class="card" style="width: 22rem;">
+        <img src="~/img/@Model.Image" class="card-img-top" alt="@Model.Title">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.Description</p>
+            <a href="@Url.Action("List","Course")" class="btn btn-primary">Tüm Kurslar</a>
+        </div>
+    </div>
+</div>
