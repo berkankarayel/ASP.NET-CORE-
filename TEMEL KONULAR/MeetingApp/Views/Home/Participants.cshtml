@@ -1,0 +1,48 @@
+@model List<MeetingApp.Models.Participant>
+
+@{
+    ViewData["Title"] = "Katılımcı Listesi";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Toplantı Katılım Listesi</h3>
+
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Ad</th>
+                                <th>Email</th>
+                                <th>Telefon</th>
+                                <th>Katılım Durumu</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in Model)
+                            {
+                                var rowClass = (p.WillAttend == true) ? "table-success" : "table-danger";
+                                <tr class="@rowClass">
+                                    <td>@p.Name</td>
+                                    <td>@p.Email</td>
+                                    <td>@p.Phone</td>
+                                    <td>@(p.WillAttend == true ? "Evet" : "Hayır")</td>
+                                    <td>
+                                        <a asp-action="Detail" asp-route-id="@p.Id" class="btn btn-sm btn-info">Detay</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <p><strong>Katılımcı Sayısı:</strong> @Model.Count(x => x.WillAttend == true)</p>
+
+                    <a asp-action="Index" class="btn btn-primary">Anasayfaya dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

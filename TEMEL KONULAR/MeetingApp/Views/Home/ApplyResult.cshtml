@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Başvuru Sonucu";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Başvuru Durumu</h3>
+                    
+                    <!-- Controller’dan gelen mesaj -->
+                    <p class="card-text">@ViewBag.Message</p>
+
+                    <!-- Geri dönme butonu -->
+                    <a asp-action="Index" class="btn btn-secondary mt-3">Ana Sayfaya Dön</a>
+
+                    <a asp-action="Participants" class="btn btn-primary mt-3">Katılımcıları Listele</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

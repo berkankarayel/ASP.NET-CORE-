@@ -1,6 +1,24 @@
+@model MeetingApp.Models.MeetingInfo
+
 @{
-    ViewData["Title"] = "Meeting App Home Page";
+    ViewData["Title"] = "Ana Sayfa";
 }
 
-<h2>Merhaba meeting App</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, aliquam!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h3 class="card-title">@ViewData["Greeting"], MeetingApp'e Hoşgeldiniz 🎉</h3>
+                    <p class="card-text">@Model.Title</p>
+                    <p class="card-text">@Model.Location</p>
+                    <p class="card-text">@Model.Date.ToString("dd.MM.yyyy HH:mm")</p>
+                    <p class="card-text"><strong>@Model.ParticipantsCount Katılımcı</strong></p>
+
+                 <a asp-action="Apply" class="btn btn-primary">Başvuru Yap</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
