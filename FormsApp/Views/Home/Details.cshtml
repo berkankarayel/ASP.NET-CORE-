@@ -1,0 +1,20 @@
+@model FormsApp.Models.Product
+
+<h2>Ürün Detayı</h2>
+
+@if (Model != null)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="~/img/@Model.Image" class="card-img-top" alt="@Model.Name">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">Fiyat: @Model.Price ₺</p>
+            <p class="card-text">Durum: @(Model.IsActive ? "Aktif" : "Pasif")</p>
+            <a href="/" class="btn btn-primary">Geri Dön</a>
+        </div>
+    </div>
+}
+else
+{
+    <p class="text-danger">Ürün bulunamadı.</p>
+}

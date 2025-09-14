@@ -17,7 +17,7 @@ namespace FormsApp.Models
             new Product{ Id=5, Name="Macbook Pro", Price=90000, IsActive=true, Image="5.jpg", CategoryId=2 }
         };
 
-        public static List<Product> Products => _products;
-        public static List<Category> Categories => _categories;
+        public static List<Product> Products => _products; // sadece okunabilir
+        public static List<Category> Categories => _categories; // sadece okunabilir
     }
 }

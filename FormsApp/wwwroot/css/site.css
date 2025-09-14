@@ -20,3 +20,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Kategori menüsü hover ve active renkleri */
+.list-group-item:hover,
+.list-group-item.active {
+    background-color: #f8f9fa; /* açık gri */
+    color: #000;               /* siyah yazı */
+    border-color: #dee2e6;     /* kenarlık görünür kalsın */
+}
