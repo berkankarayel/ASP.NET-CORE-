@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FormsApp.Models.Product>
+
+<h2>Product List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Resim</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Aktif mi?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td><img src="~/img/@product.Image" width="100"/></td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@(product.IsActive ? "Evet" : "Hayır")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

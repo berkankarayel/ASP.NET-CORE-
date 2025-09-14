@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations; // DataAnnotations kütüphanesi, model doğrulama için gerekli
 
 namespace MeetingApp.Models
 {
