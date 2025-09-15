@@ -1,0 +1,29 @@
+@model IEnumerable<EntityFramework.Models.Entities.Ogrenci>
+
+<h2>Öğrenci Listesi</h2>
+
+<a asp-action="Create" class="btn btn-primary">Öğrenci Ekle</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>E-posta</th>
+            <th>Telefon</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OgrenciId</td>
+            <td>@item.OgrenciAd</td>
+            <td>@item.OgrenciSoyad</td>
+            <td>@item.Eposta</td>
+            <td>@item.Telefon</td>
+        </tr>
+    }
+    </tbody>
+</table>
