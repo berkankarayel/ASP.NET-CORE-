@@ -1,8 +1,10 @@
 @model FormsApp.Models.CreateProductViewModel
 
-<h2>Yeni Ürün Ekle</h2>
+<h2>Ürün Güncelle</h2>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Product.Id" />
+
     <div class="mb-3">
         <label asp-for="Product.Name" class="form-label"></label>
         <input asp-for="Product.Name" class="form-control" />
@@ -11,13 +13,13 @@
 
     <div class="mb-3">
         <label asp-for="Product.Price" class="form-label"></label>
-        <input asp-for="Product.Price" class="form-control" type="text" />
+       <input asp-for="Product.Price" class="form-control" type="text" />
         <span asp-validation-for="Product.Price" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Ürün Resmi</label>
-        <input type="file" name="imageFile" class="form-control" />
+        <label asp-for="Product.Image" class="form-label"></label>
+        <input asp-for="Product.Image" class="form-control" />
     </div>
 
     <div class="mb-3">
@@ -31,7 +33,7 @@
         <label asp-for="Product.IsActive" class="form-check-label"></label>
     </div>
 
-    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
 </form>
 
 @section Scripts {

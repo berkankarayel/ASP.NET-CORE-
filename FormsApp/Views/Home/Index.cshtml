@@ -38,21 +38,27 @@
                 {
                     <tr>
                         <td>@product.Id</td>
-                        <td><img src="~/img/@product.Image" width="100"/></td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(product.Image))
+                            {
+                                <img src="@product.Image" width="100" />
+                            }
+                        </td>
                         <td>@product.Name</td>
                         <td>@product.Price ₺</td>
                         <td>@(product.IsActive ? "Evet" : "Hayır")</td>
                         <td>
-                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-info">
-                                Detay
-                            </a>
+                            <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-info">Detay</a>
+                            <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm btn-warning">Düzenle</a>
+                            <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger">Sil</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-   <div class="mb-3">
-    <a asp-action="Create" class="btn btn-success">+ Yeni Ürün Ekle</a>
-</div>
+
+        <div class="mb-3">
+            <a asp-action="Create" class="btn btn-success">+ Yeni Ürün Ekle</a>
+        </div>
     </div>
 </div>
