@@ -7,7 +7,7 @@ namespace EntityFramework.Models.Entities
         public string Soyad { get; set; }
         public string Eposta { get; set; }
         public string Telefon { get; set; }
-        public DateTime BaslamaTarihi { get; set; }
+        public DateOnly BaslamaTarihi { get; set; }
 
         // Navigation Property: 1 öğretmenin birden fazla kursu olabilir
         public ICollection<Kurs> Kurslar { get; set; } = new List<Kurs>();

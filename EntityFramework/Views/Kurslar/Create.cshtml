@@ -1,0 +1,25 @@
+@model EntityFramework.Models.Entities.Kurs
+
+<h2>Kurs Ekle</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-3">
+        <label asp-for="Baslik" class="form-label"></label>
+        <input asp-for="Baslik" class="form-control" />
+        <span asp-validation-for="Baslik" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="OgretmenId" class="form-label">Öğretmen</label>
+        <select asp-for="OgretmenId"
+                asp-items="ViewBag.Ogretmenler"
+                class="form-control">
+            <option value="">-- Öğretmen Seç --</option>
+        </select>
+        <span asp-validation-for="OgretmenId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

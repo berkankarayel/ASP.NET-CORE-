@@ -23,6 +23,11 @@
             <td>@item.OgrenciSoyad</td>
             <td>@item.Eposta</td>
             <td>@item.Telefon</td>
+            <td>
+    <a asp-action="Edit" asp-route-id="@item.OgrenciId" class="btn btn-warning btn-sm">Düzenle</a>
+    <a asp-action="Delete" asp-route-id="@item.OgrenciId" class="btn btn-danger btn-sm">Sil</a>
+</td>
+
         </tr>
     }
     </tbody>

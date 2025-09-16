@@ -1,0 +1,16 @@
+@model EntityFramework.Models.Entities.Kurs
+
+<h2>Kurs Sil</h2>
+
+<h4>Bu kursu silmek istediğinizden emin misiniz?</h4>
+
+<div>
+    <p><strong>Başlık:</strong> @Model.Baslik</p>
+    <p><strong>Öğretmen:</strong> @(Model.Ogretmen != null ? Model.Ogretmen.Ad + " " + Model.Ogretmen.Soyad : "-")</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="KursId" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+</form>

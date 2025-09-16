@@ -1,0 +1,30 @@
+@model IEnumerable<EntityFramework.Models.Entities.Kurs>
+
+<h2>Kurs Listesi</h2>
+
+<a asp-action="Create" class="btn btn-primary">Kurs Ekle</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Başlık</th>
+            <th>Öğretmen</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.KursId</td>
+            <td>@item.Baslik</td>
+            <td>@(item.Ogretmen != null ? item.Ogretmen.Ad + " " + item.Ogretmen.Soyad : "-")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KursId" class="btn btn-warning btn-sm">Düzenle</a>
+                <a asp-action="Delete" asp-route-id="@item.KursId" class="btn btn-danger btn-sm">Sil</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

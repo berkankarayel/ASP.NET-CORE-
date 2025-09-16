@@ -1,0 +1,36 @@
+@model IEnumerable<EntityFramework.Models.Entities.Ogretmen>
+
+<h2>Öğretmen Listesi</h2>
+
+<a asp-action="Create" class="btn btn-primary">Öğretmen Ekle</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>E-posta</th>
+            <th>Telefon</th>
+            <th>Başlama Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OgretmenId</td>
+            <td>@item.Ad</td>
+            <td>@item.Soyad</td>
+            <td>@item.Eposta</td>
+            <td>@item.Telefon</td>
+            <td>@item.BaslamaTarihi.ToShortDateString()</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OgretmenId" class="btn btn-warning btn-sm">Düzenle</a>
+                <a asp-action="Delete" asp-route-id="@item.OgretmenId" class="btn btn-danger btn-sm">Sil</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

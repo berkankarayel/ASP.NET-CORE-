@@ -1,0 +1,18 @@
+@model EntityFramework.Models.Entities.Ogrenci
+
+<h2>Öğrenci Sil</h2>
+
+<h4>Bu öğrenciyi silmek istediğinizden emin misiniz?</h4>
+
+<div>
+    <p><strong>Ad:</strong> @Model.OgrenciAd</p>
+    <p><strong>Soyad:</strong> @Model.OgrenciSoyad</p>
+    <p><strong>E-posta:</strong> @Model.Eposta</p>
+    <p><strong>Telefon:</strong> @Model.Telefon</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="OgrenciId" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+</form>
