@@ -1,7 +1,9 @@
 using EntityFramework.Data;
 using EntityFramework.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
-
+using EntityFramework.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 namespace EntityFramework.Controllers
 {
     public class OgrencilerController : Controller
@@ -93,45 +95,55 @@ namespace EntityFramework.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-            public IActionResult KursaKaydet(int id)
-{
-    var ogrenci = _context.Ogrenciler.Find(id);
-    if (ogrenci == null) return NotFound();
+        // Öğrenciyi kursa kaydetme formu (GET)
+        public IActionResult KursaKaydet(int id)
+        {
+            var ogrenci = _context.Ogrenciler.Find(id);
+            if (ogrenci == null) return NotFound();
 
-    ViewBag.Kurslar = new SelectList(_context.Kurslar, "KursId", "Baslik");
+            ViewBag.Kurslar = new SelectList(_context.Kurslar, "KursId", "Baslik");
 
-    return View(new KursKayitViewModel
-    {
-        OgrenciId = ogrenci.OgrenciId
-    });
-}
+            return View(new KursaKaydetViewModel
+            {
+                OgrenciId = ogrenci.OgrenciId
+            });
+        }
 
-[HttpPost]
-[ValidateAntiForgeryToken]
-public IActionResult KursaKaydet(KursaKaydetViewModel model)
-{
-    var ogrenci = _context.Ogrenciler
-        .Include(o => o.Kurslar)
-        .FirstOrDefault(o => o.OgrenciId == model.OgrenciId);
+        // Kursa kaydetme işlemi (POST)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult KursaKaydet(KursaKaydetViewModel model)
+        {
+            var ogrenci = _context.Ogrenciler
+                .Include(o => o.Kurslar)
+                .FirstOrDefault(o => o.OgrenciId == model.OgrenciId);
 
-    if (ogrenci == null) return NotFound();
+            if (ogrenci == null) return NotFound();
 
-    var kurs = _context.Kurslar.Find(model.KursId);
-    if (kurs == null) return NotFound();
+            var kurs = _context.Kurslar.Find(model.KursId);
+            if (kurs == null) return NotFound();
 
-    // Eğer öğrenci zaten bu kursa kayıtlı değilse ekle
-    if (!ogrenci.Kurslar.Any(k => k.KursId == kurs.KursId))
-    {
-        ogrenci.Kurslar.Add(kurs);
-        _context.SaveChanges();
-    }
+            // Eğer zaten kayıtlı değilse ekle
+            if (!ogrenci.Kurslar.Any(k => k.KursId == kurs.KursId))
+            {
+                ogrenci.Kurslar.Add(kurs);
+                _context.SaveChanges();
+            }
 
-    return RedirectToAction("Details", new { id = ogrenci.OgrenciId });
-}
+            return RedirectToAction("Details", new { id = ogrenci.OgrenciId });
+        }
 
+        // Öğrenci Detay
+        public IActionResult Details(int id)
+        {
+            var ogrenci = _context.Ogrenciler
+                .Include(o => o.Kurslar)
+                .FirstOrDefault(o => o.OgrenciId == id);
 
+            if (ogrenci == null) return NotFound();
 
-
+            return View(ogrenci);
+        }
     }
     
 }

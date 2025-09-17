@@ -1,0 +1,17 @@
+@model EntityFramework.Models.Entities.Ogrenci
+
+<h2>@Model.OgrenciAd @Model.OgrenciSoyad</h2>
+<p><b>E-posta:</b> @Model.Eposta</p>
+<p><b>Telefon:</b> @Model.Telefon</p>
+
+<h4>Kayıtlı Kurslar</h4>
+<ul>
+    @foreach (var kurs in Model.Kurslar)
+    {
+        <li>@kurs.Baslik</li>
+    }
+</ul>
+
+<a asp-action="KursaKaydet" asp-route-id="@Model.OgrenciId" class="btn btn-primary">
+    Yeni Kurs Ekle
+</a>

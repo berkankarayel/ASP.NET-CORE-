@@ -52,12 +52,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaWxlclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/berka/OneDrive/Masaüstü/ASP.NET Core/EntityFramework/Views/Ogrenciler/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaWxlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/berka/OneDrive/Masaüstü/ASP.NET Core/EntityFramework/Views/Ogrenciler/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaWxlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berka/OneDrive/Masaüstü/ASP.NET Core/EntityFramework/Views/Ogrenciler/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaWxlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ASP.NET Core/EntityFramework/Views/Ogrenciler/KursaKaydet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZW5jaWxlclxLdXJzYUtheWRldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berka/OneDrive/Masaüstü/ASP.NET Core/EntityFramework/Views/Ogretmenler/Create.cshtml]

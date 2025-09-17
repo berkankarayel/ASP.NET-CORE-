@@ -10,5 +10,10 @@ namespace EntityFramework.Models.Entities
 
 
         public ICollection<Kurs> Kurslar { get; set; } = new List<Kurs>();  // Many-to-Many ilişki
+   
+   
+    
+   
+   
     }
 }

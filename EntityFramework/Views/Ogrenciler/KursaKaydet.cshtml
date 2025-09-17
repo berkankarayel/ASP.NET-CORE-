@@ -1,0 +1,16 @@
+@model EntityFramework.Models.ViewModels.KursaKaydetViewModel
+
+<h2>Öğrenciyi Kursa Kaydet</h2>
+
+<form asp-action="KursaKaydet" method="post">
+    <input type="hidden" asp-for="OgrenciId" />
+
+    <div class="form-group mb-3">
+        <label asp-for="KursId">Kurs Seç</label>
+        <select asp-for="KursId" asp-items="ViewBag.Kurslar" class="form-control">
+            <option value="">-- Kurs Seç --</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

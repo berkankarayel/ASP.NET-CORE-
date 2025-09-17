@@ -32,10 +32,10 @@ namespace EntityFramework.Controllers
             return View();
         }
 
-       [HttpPost]
-[ValidateAntiForgeryToken]
-public IActionResult Create(Kurs kurs)
-{
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Kurs kurs)
+        {
     if (!ModelState.IsValid)
     {
         Console.WriteLine("❌ ModelState hatalı");
